@@ -60,10 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                 });
 
-                const data = await response.json();
+                const contentType = response.headers.get("content-type") || "";
+                let data;
+
+                if (contentType.includes("application/json")) {
+                    data = await response.json();
+                } else {
+                    const text = await response.text();
+                    throw new Error(
+                        text || `Request failed with status ${response.status}`
+                    );
+                }
 
                 if (!response.ok) {
-                    throw new Error(JSON.stringify(data.detail));
+                    throw new Error(
+                        data.detail || `Request failed with status ${response.status}`
+                    );
                 }
 
                 resultBox.innerHTML = `
