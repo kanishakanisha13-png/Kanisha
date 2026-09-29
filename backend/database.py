@@ -1,7 +1,15 @@
+import os
 import sqlite3
 
 
-DATABASE_NAME = "pocketsmart.db"
+# Vercel function storage is not persistent/read-write like a local machine.
+# Use its writable temporary directory in production, while keeping the
+# normal local SQLite file for development.
+DATABASE_NAME = (
+    "/tmp/pocketsmart.db"
+    if os.getenv("VERCEL")
+    else "pocketsmart.db"
+)
 
 
 def get_connection():
