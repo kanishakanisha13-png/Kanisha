@@ -8,7 +8,10 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-client = genai.Client(api_key=GEMINI_API_KEY)
+# Create the Gemini client only when an API key is available.
+# This allows the FastAPI app to start even if the Vercel
+# environment variable has not been configured yet.
+client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
 
 def generate_recommendation(prompt: str) -> str:
@@ -16,10 +19,10 @@ def generate_recommendation(prompt: str) -> str:
     Generate budget-based recommendations using Gemini.
     """
 
-    if not GEMINI_API_KEY:
+    if not GEMINI_API_KEY or client is None:
         return (
             "Gemini API key is not configured yet. "
-            "Please add your GEMINI_API_KEY to the .env file."
+            "Please add your GEMINI_API_KEY to the Vercel environment variables."
         )
 
     try:
