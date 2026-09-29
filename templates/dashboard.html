@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - PocketSmart AI{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>📊 PocketSmart AI Dashboard</h1>
+
+    <p>
+        Welcome! Choose what you want to plan.
+    </p>
+
+    <div class="category-container">
+
+        <!-- Home Decor -->
+        <div class="category-card">
+
+            <h2>🏠 Home Decor</h2>
+
+            <p>
+                Get smart home decoration recommendations
+                based on your budget.
+            </p>
+
+            <br>
+
+            <a href="/home">
+                <button type="button">
+                    Plan Home Decor
+                </button>
+            </a>
+
+        </div>
+
+
+        <!-- Party Planning -->
+        <div class="category-card">
+
+            <h2>🎉 Party Planning</h2>
+
+            <p>
+                Plan your party with budget-friendly
+                AI recommendations.
+            </p>
+
+            <br>
+
+            <a href="/party">
+                <button type="button">
+                    Plan a Party
+                </button>
+            </a>
+
+        </div>
+
+
+        <!-- Jewelry -->
+        <div class="category-card">
+
+            <h2>💎 Jewelry</h2>
+
+            <p>
+                Find jewelry recommendations
+                within your budget.
+            </p>
+
+            <br>
+
+            <a href="/jewelry">
+                <button type="button">
+                    Find Jewelry
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Actions -->
+
+    <div style="margin-top: 40px;">
+
+        <a href="/history">
+            <button type="button">
+                📜 View History
+            </button>
+        </a>
+
+        &nbsp;&nbsp;
+
+        <a href="/logout">
+            <button type="button">
+                🚪 Logout
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

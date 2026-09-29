@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}History - PocketSmart AI{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>📜 Recommendation History</h1>
+
+    <p>
+        Your previous PocketSmart AI recommendations.
+    </p>
+
+    {% if history %}
+
+        {% for item in history %}
+
+        <div class="category-container">
+
+            <div class="category-card">
+
+                <h2>{{ item.category }}</h2>
+
+                <p>
+                    <strong>Budget:</strong>
+                    ₹{{ item.budget }}
+                </p>
+
+                <p>
+                    <strong>Preferences:</strong>
+                    {{ item.preferences }}
+                </p>
+
+                <hr>
+
+                <h3>🤖 Recommendation</h3>
+
+                <p>
+                    {{ item.recommendations }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="category-container">
+
+            <div class="category-card">
+
+                <h2>📭 No History Yet</h2>
+
+                <p>
+                    You haven't generated any recommendations yet.
+                </p>
+
+                <br>
+
+                <a href="/dashboard">
+                    <button type="button">
+                        Go to Dashboard
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/dashboard">
+        <button type="button">
+            ← Back to Dashboard
+        </button>
+    </a>
+
+</div>
+
+{% endblock %}

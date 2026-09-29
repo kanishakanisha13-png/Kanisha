@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendations - PocketSmart AI{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>✨ AI Recommendations</h1>
+
+    <p>
+        Smart recommendations based on your budget and preferences.
+    </p>
+
+    <div class="category-container">
+
+        <div class="category-card">
+
+            <h2>🤖 Your Recommendation</h2>
+
+            {% if category %}
+                <p>
+                    <strong>Category:</strong>
+                    {{ category }}
+                </p>
+            {% endif %}
+
+            {% if budget %}
+                <p>
+                    <strong>Budget:</strong>
+                    ₹{{ budget }}
+                </p>
+            {% endif %}
+
+            <hr>
+
+            {% if recommendations %}
+
+                <div class="recommendation-text">
+                    {{ recommendations }}
+                </div>
+
+            {% else %}
+
+                <p>
+                    No recommendation available yet.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="/dashboard">
+        <button type="button">
+            ← Back to Dashboard
+        </button>
+    </a>
+
+    <a href="/history">
+        <button type="button">
+            📜 View History
+        </button>
+    </a>
+
+</div>
+
+{% endblock %}

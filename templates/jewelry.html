@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Jewelry - PocketSmart AI{% endblock %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>💎 Jewelry Recommendations</h1>
+
+    <p>
+        Find beautiful jewelry within your budget.
+    </p>
+
+    <div class="category-container">
+
+        <div class="category-card">
+
+            <h2>Find Your Jewelry</h2>
+
+            <p>
+                Enter your budget and preferences to get smart jewelry recommendations.
+            </p>
+
+            <form>
+
+                <label for="budget">Budget (₹)</label>
+                <br><br>
+
+                <input
+                    type="number"
+                    id="budget"
+                    name="budget"
+                    placeholder="Enter your budget"
+                    required
+                >
+
+                <br><br>
+
+                <label for="preferences">Preferences</label>
+                <br><br>
+
+                <textarea
+                    id="preferences"
+                    name="preferences"
+                    placeholder="Example: Gold necklace for wedding"
+                    rows="4"
+                    required
+                ></textarea>
+
+                <br><br>
+
+                <button type="submit">
+                    Get Recommendations
+                </button>
+
+            </form>
+
+            <div id="recommendation-result"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
